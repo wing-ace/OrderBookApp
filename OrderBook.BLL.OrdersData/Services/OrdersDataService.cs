@@ -30,9 +30,10 @@ namespace OrderBook.BLL.OrdersData.Services
         public SummaryOrdersDataInfoDto GetSellOrdersSummaryData(decimal depthValue, int pageNumber, int pageSize)
         {
             var sellOrders = _fetchOrdersDataBackgroundService.GetSellOrdersData()
-                .OrderBy(orderDataDc => orderDataDc.Price).AsQueryable();
-            return CreateSummaryOrdersDataInfoDto(GetCalculatedAndFilteredOrdersDataList(sellOrders, depthValue),
-                pageNumber, pageSize, sellOrders.Count());
+                .OrderBy(orderDataDc => orderDataDc.Price);
+            var calculatedAndFilteredOrdersData = GetCalculatedAndFilteredOrdersDataList(sellOrders, depthValue).ToList();
+            return CreateSummaryOrdersDataInfoDto(calculatedAndFilteredOrdersData,
+                pageNumber, pageSize, calculatedAndFilteredOrdersData.Count);
         }
 
         /// <summary>
@@ -45,9 +46,10 @@ namespace OrderBook.BLL.OrdersData.Services
         public SummaryOrdersDataInfoDto GetBuyOrdersSummaryData(decimal depthValue, int pageNumber, int pageSize)
         {
             var buyOrders = _fetchOrdersDataBackgroundService.GetBuyOrdersData()
-                .OrderByDescending(orderDataDc => orderDataDc.Price).AsQueryable();
-            return CreateSummaryOrdersDataInfoDto(GetCalculatedAndFilteredOrdersDataList(buyOrders, depthValue),
-                pageNumber, pageSize, buyOrders.Count());
+                .OrderByDescending(orderDataDc => orderDataDc.Price);
+            var calculatedAndFilteredOrdersData = GetCalculatedAndFilteredOrdersDataList(buyOrders, depthValue).ToList();
+            return CreateSummaryOrdersDataInfoDto(calculatedAndFilteredOrdersData,
+                pageNumber, pageSize, calculatedAndFilteredOrdersData.Count);
         }
 
         /// <summary>
@@ -78,7 +80,7 @@ namespace OrderBook.BLL.OrdersData.Services
         /// <param name="pageSize">The current page size</param>
         /// <param name="totalItemsCount">The total items count before filtering</param>
         /// <returns>The summary data about orders with pagination data</returns>
-        private static SummaryOrdersDataInfoDto CreateSummaryOrdersDataInfoDto(IEnumerable<OrderInfoDc> ordersDataList, int pageNumber, int pageSize, int totalItemsCount)
+        private static SummaryOrdersDataInfoDto CreateSummaryOrdersDataInfoDto(List<OrderInfoDc> ordersDataList, int pageNumber, int pageSize, int totalItemsCount)
             => new SummaryOrdersDataInfoDto
             {
                 OrdersList = ordersDataList.ToPagedList(pageNumber, pageSize),
