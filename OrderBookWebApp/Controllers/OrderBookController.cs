@@ -28,15 +28,5 @@ namespace OrderBookWebApp.Controllers
         public IActionResult GetOrdersDataByType(OrderTypeEnum orderType, decimal depthValue, int pageNumber,
             int pageSize)
             => TransferToControllerResult(_ordersDataManager.GetOrdersSummaryDataByType(orderType, depthValue, pageNumber, pageSize));
-
-        /// <summary>
-        /// Get the orders data loading status
-        /// </summary>
-        /// <returns>
-        /// true - if orders data loaded from external api, otherwise false
-        /// </returns>
-        [HttpGet]
-        public IActionResult IsOrdersDataReceivedFromExternalApi()
-            => TransferToControllerResult(_ordersDataManager.IsOrdersDataReceivedFromExternalApi());
     }
 }

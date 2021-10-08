@@ -17,13 +17,5 @@ namespace OrderBook.BLL.OrdersData.Services.Interfaces
         /// <param name="pageSize">The number of items per one page</param>
         /// <returns>The paged list of buy orders</returns>
         SummaryOrdersDataInfoDto GetOrdersSummaryDataByType(OrderTypeEnum orderType, decimal depthValue, int pageNumber, int pageSize);
-
-        /// <summary>
-        /// Get the orders data loading status
-        /// </summary>
-        /// <returns>
-        /// true - if orders data loaded from external api, otherwise false
-        /// </returns>
-        bool IsOrdersDataReceivedFromExternalApi();
     }
 }

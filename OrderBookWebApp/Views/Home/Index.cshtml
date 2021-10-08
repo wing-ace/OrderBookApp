@@ -4,21 +4,19 @@
 }
 
 <div class="ibox" style="margin: 15px 0 60px 0" id="order-book-container">
-    <div data-bind="visible: $root.HasOrdersDataReceivedFromExternalApi">
-        <div class="ibox-content">
-            @await Html.PartialAsync("Components/_inputFields")
+    <div class="ibox-content">
+        @await Html.PartialAsync("Components/_inputFields")
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
+            <!-- ko with: $root.BuyOrders -->
+            @await Html.PartialAsync("Components/_ordersTable")
+            <!--/ko-->
         </div>
-        <div class="row">
-            <div class="col-lg-6 col-md-6">
-                <!-- ko with: $root.BuyOrders -->
-                @await Html.PartialAsync("Components/_ordersTable")
-                <!--/ko-->
-            </div>
-            <div class="col-lg-6 col-md-6">
-                <!-- ko with: $root.SellOrders -->
-                @await Html.PartialAsync("Components/_ordersTable")
-                <!--/ko-->
-            </div>
+        <div class="col-lg-6 col-md-6">
+            <!-- ko with: $root.SellOrders -->
+            @await Html.PartialAsync("Components/_ordersTable")
+            <!--/ko-->
         </div>
     </div>
 </div>
@@ -31,8 +29,7 @@
     <script type="text/javascript">
         var config = {
             Urls: {
-                GetOrdersDataByType: '@Url.Action("GetOrdersDataByType", "OrderBook")',
-                IsOrdersDataReceivedFromExternalApi: '@Url.Action("IsOrdersDataReceivedFromExternalApi", "OrderBook")',
+                GetOrdersDataByType: '@Url.Action("GetOrdersDataByType", "OrderBook")'
             },
             OrderTypes: {
                 SellOrders: @((int)OrderTypeEnum.SellOrder),

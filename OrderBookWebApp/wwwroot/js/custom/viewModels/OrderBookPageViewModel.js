@@ -5,18 +5,6 @@ function OrderBookPageViewModel(config) {
     vm.LoaderContainer = $('#order-book-container');
     vm.PageSize = 10;
     vm.DefaultPageNumber = 1;
-    vm.HasOrdersDataReceivedFromExternalApi = ko.observable(false);
-
-    vm.BlockUiUntilOrdersDataIsReceivedFromExternalApi = async function () {
-        webRequestSender.sendGetRequst(vm.Config.Urls.IsOrdersDataReceivedFromExternalApi, function (result) {
-            if (!result.data) {
-                setTimeout(vm.BlockUiUntilOrdersDataIsReceivedFromExternalApi, 2000);
-                return;
-            }
-            vm.HasOrdersDataReceivedFromExternalApi(true);
-            vm.Filter.ApplyFilter(vm.DefaultPageNumber);
-        });
-    }
 
     vm.Filter = {
         DepthValue: ko.observable(null),
@@ -27,6 +15,14 @@ function OrderBookPageViewModel(config) {
             PageLoader.HideLoader(vm.LoaderContainer);
         }
     };
+
+    vm.BlockUiUntilOrdersDataIsReceived = async function () {
+        if (vm.BuyOrders.OrdersData().length === 0 && vm.SellOrders.OrdersData().length === 0) {
+            await vm.Filter.ApplyFilter();
+            setTimeout(vm.BlockUiUntilOrdersDataIsReceived, 2000);
+            return;
+        }
+    }
 
     vm.SellOrders = new function() {
         this.Title = ko.observable("Sell Orders");
@@ -94,7 +90,7 @@ function OrderBookPageViewModel(config) {
     };
 
     function constructor() {
-        vm.BlockUiUntilOrdersDataIsReceivedFromExternalApi();
+        vm.BlockUiUntilOrdersDataIsReceived();
     };
 
     constructor();

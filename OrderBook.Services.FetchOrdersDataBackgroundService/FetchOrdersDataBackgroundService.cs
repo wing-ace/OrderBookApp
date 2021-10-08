@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
@@ -70,17 +69,6 @@ namespace OrderBook.Services.FetchOrdersDataBackgroundService
         /// <returns>The list of buy orders</returns>
         public IEnumerable<OrderDataFromExternalApiDto> GetBuyOrdersData()
             => _buyOrdersConcurrentBag;
-
-        /// <summary>
-        /// Get the status of loading orders data
-        /// </summary>
-        /// <returns>
-        /// true - if there are records
-        /// in <see cref="_sellOrdersConcurrentBag"/>
-        /// and <see cref="_buyOrdersConcurrentBag"/>
-        /// </returns>
-        public bool IsDataReceived()
-            => _sellOrdersConcurrentBag.Any() && _buyOrdersConcurrentBag.Any();
 
         /// <summary>
         /// The main method for fetching data from external API

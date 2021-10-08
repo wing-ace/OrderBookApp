@@ -40,24 +40,5 @@ namespace OrderBook.BLL.OrdersData.Managers
                 return Error<SummaryOrdersDataInfoDto>(ex.Message);
             }
         }
-
-        /// <summary>
-        /// Get the orders data loading status
-        /// </summary>
-        /// <returns>
-        /// Manager result with orders data loading status
-        /// </returns>
-        public ManagerResult<bool> IsOrdersDataReceivedFromExternalApi()
-        {
-            try
-            {
-                return Ok(_ordersDataService.IsOrdersDataReceivedFromExternalApi());
-            }
-            catch (Exception ex)
-            {
-                ExceptionsHandler.Handle(ex, "Getting receive orders data process failed.");
-                return Error<bool>(ex.Message);
-            }
-        }
     }
 }

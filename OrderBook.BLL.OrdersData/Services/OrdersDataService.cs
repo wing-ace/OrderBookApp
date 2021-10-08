@@ -49,15 +49,6 @@ namespace OrderBook.BLL.OrdersData.Services
         }
 
         /// <summary>
-        /// Get the orders data loading status
-        /// </summary>
-        /// <returns>
-        /// true - if orders data loaded from external api, otherwise false
-        /// </returns>
-        public bool IsOrdersDataReceivedFromExternalApi()
-            => _fetchOrdersDataBackgroundService.IsDataReceived();
-
-        /// <summary>
         /// Returns the filtered list of orders with calculated cumulative volume
         /// </summary>
         /// <param name="ordersData">The list of orders</param>
