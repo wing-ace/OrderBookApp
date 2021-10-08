@@ -21,6 +21,7 @@ namespace OrderBook.Services.FetchOrdersDataBackgroundService
         private readonly IServiceProvider _serviceProvider;
         private readonly ILogger<FetchOrdersDataBackgroundService> _logger;
 
+        private readonly ManualResetEvent _eventLocker = new ManualResetEvent(false);
         private readonly ConcurrentBag<OrderDataFromExternalApiDto> _sellOrdersConcurrentBag = new ConcurrentBag<OrderDataFromExternalApiDto>();
         private readonly ConcurrentBag<OrderDataFromExternalApiDto> _buyOrdersConcurrentBag = new ConcurrentBag<OrderDataFromExternalApiDto>();
 
@@ -61,14 +62,20 @@ namespace OrderBook.Services.FetchOrdersDataBackgroundService
         /// </summary>
         /// <returns>The list of sell orders</returns>
         public IEnumerable<OrderDataFromExternalApiDto> GetSellOrdersData()
-            => _sellOrdersConcurrentBag;
+        {
+            _eventLocker.WaitOne();
+            return _sellOrdersConcurrentBag.ToArray();
+        }
 
         /// <summary>
         /// Get the list of buy orders
         /// </summary>
         /// <returns>The list of buy orders</returns>
         public IEnumerable<OrderDataFromExternalApiDto> GetBuyOrdersData()
-            => _buyOrdersConcurrentBag;
+        {
+            _eventLocker.WaitOne();
+            return _buyOrdersConcurrentBag.ToArray();
+        }
 
         /// <summary>
         /// The main method for fetching data from external API
@@ -91,8 +98,10 @@ namespace OrderBook.Services.FetchOrdersDataBackgroundService
                     return;
                 }
 
+                _eventLocker.Reset();
                 AddItemsToConcurentBag(ordersData.BuyOrdersData, _buyOrdersConcurrentBag);
                 AddItemsToConcurentBag(ordersData.SellOrdersData, _sellOrdersConcurrentBag);
+                _eventLocker.Set();
             }
             catch (Exception ex)
             {
