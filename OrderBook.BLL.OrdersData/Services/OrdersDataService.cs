@@ -5,7 +5,7 @@ using OrderBook.BLL.OrdersData.Services.Interfaces;
 using OrderBook.CommonTools.Extensions;
 using OrderBook.DataContracts.Orders.Enums;
 using OrderBook.DataContracts.Orders.Models;
-using OrderBook.Services.FetchOrdersDataBackgroundService;
+using OrderBook.Services.FetchOrdersDataBackgroundService.Interfaces;
 
 namespace OrderBook.BLL.OrdersData.Services
 {
@@ -14,14 +14,14 @@ namespace OrderBook.BLL.OrdersData.Services
     /// </summary>
     internal class OrdersDataService : IOrdersDataService
     {
-        private readonly FetchOrdersDataBackgroundService _fetchOrdersDataBackgroundService;
+        private readonly IFetchOrdersDataBackgroundService _fetchOrdersDataBackgroundService;
 
         private readonly IDictionary<OrderTypeEnum, Func<IEnumerable<OrderDataFromExternalApiDto>>>
             _mapOrderTypeToGetOrdersMethodDictionary;
 
         public OrdersDataService(IServiceProvider serviceProvider)
         {
-            _fetchOrdersDataBackgroundService = serviceProvider.GetHostedService<FetchOrdersDataBackgroundService>();
+            _fetchOrdersDataBackgroundService = serviceProvider.GetHostedService<IFetchOrdersDataBackgroundService>();
             _mapOrderTypeToGetOrdersMethodDictionary = CreateMapOrderTypeToGetOrdersMethodDictionary();
         }
 

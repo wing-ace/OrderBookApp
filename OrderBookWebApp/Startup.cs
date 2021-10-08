@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OrderBook.CommonDependenciesRegistration;
 using OrderBook.Services.FetchOrdersDataBackgroundService;
+using OrderBook.Services.FetchOrdersDataBackgroundService.Interfaces;
 
 namespace OrderBookWebApp
 {
@@ -29,7 +30,9 @@ namespace OrderBookWebApp
             services.AddControllersWithViews();
             CommonDependenciesRegistrator.Register(services);
 
-            services.AddHostedService<FetchOrdersDataBackgroundService>();
+            services.AddSingleton<IFetchOrdersDataBackgroundService, FetchOrdersDataBackgroundService>();
+            services.AddHostedService(serviceProvider =>
+                (FetchOrdersDataBackgroundService)serviceProvider.GetService<IFetchOrdersDataBackgroundService>());
         }
 
         /// <summary>

@@ -24,7 +24,6 @@ namespace OrderBook.Tests
         public void SmokeTestForCheckReceivingMainPageViewFromHomeController()
         {
             var homeController = new HomeController();
-            Assert.NotNull(homeController);
 
             var mainPageView = homeController.Index();
             Assert.IsType<ViewResult>(mainPageView);

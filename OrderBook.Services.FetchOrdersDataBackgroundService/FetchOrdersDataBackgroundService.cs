@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using OrderBook.DataContracts.Orders.Models;
 using OrderBook.Kit.RestClientWrapper.Interfaces;
+using OrderBook.Services.FetchOrdersDataBackgroundService.Interfaces;
 using OrderBook.Services.RefreshOrdersDataBackgroudService.Constants;
 
 namespace OrderBook.Services.FetchOrdersDataBackgroundService
@@ -15,7 +16,7 @@ namespace OrderBook.Services.FetchOrdersDataBackgroundService
     /// <summary>
     /// The background service for fetch orders data from external API
     /// </summary>
-    public class FetchOrdersDataBackgroundService : IHostedService, IDisposable
+    public class FetchOrdersDataBackgroundService : IHostedService, IFetchOrdersDataBackgroundService, IDisposable
     {
         private Timer _timer;
         private readonly IServiceProvider _serviceProvider;
