@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OrderBook.CommonDependenciesRegistration;
-using OrderBook.Services.RefreshOrdersDataBackgroudService;
+using OrderBook.Services.FetchOrdersDataBackgroundService;
 
 namespace OrderBookWebApp
 {

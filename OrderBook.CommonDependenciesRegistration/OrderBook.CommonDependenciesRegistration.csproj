@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OrderBook.BLL.OrdersData\OrderBook.BLL.OrdersData.csproj" />
+    <ProjectReference Include="..\OrderBook.ExceptionsHandler\OrderBook.ExceptionsHandler.csproj" />
     <ProjectReference Include="..\OrderBook.Kit.RestClientWrapper\OrderBook.Kit.RestClientWrapper.csproj" />
   </ItemGroup>
 

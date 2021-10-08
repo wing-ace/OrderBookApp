@@ -17,7 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\OrderBook.CommonDependenciesRegistration\OrderBook.CommonDependenciesRegistration.csproj" />
     <ProjectReference Include="..\OrderBook.DataContracts.Orders\OrderBook.DataContracts.Orders.csproj" />
-    <ProjectReference Include="..\OrderBook.Services.RefreshOrdersDataBackgroudService\OrderBook.Services.RefreshOrdersDataBackgroudService.csproj" />
+    <ProjectReference Include="..\OrderBook.Services.FetchOrdersDataBackgroundService\OrderBook.Services.FetchOrdersDataBackgroundService.csproj" />
   </ItemGroup>
 
   <ItemGroup>

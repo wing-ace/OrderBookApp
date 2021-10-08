@@ -3,6 +3,7 @@ using OrderBook.BLL.Common;
 using OrderBook.BLL.Common.ResultModels;
 using OrderBook.BLL.OrdersData.Services.Interfaces;
 using OrderBook.DataContracts.Orders.Models;
+using OrderBook.ExceptionsHandler.Interfaces;
 
 namespace OrderBook.BLL.OrdersData.Managers
 {
@@ -13,7 +14,7 @@ namespace OrderBook.BLL.OrdersData.Managers
     {
         private readonly IOrdersDataService _ordersDataService;
 
-        public OrdersDataManager(IOrdersDataService ordersDataService)
+        public OrdersDataManager(IOrdersDataService ordersDataService, IExceptionsHandler exceptionsHandler) : base(exceptionsHandler)
         {
             _ordersDataService = ordersDataService;
         }
@@ -34,6 +35,7 @@ namespace OrderBook.BLL.OrdersData.Managers
             }
             catch (Exception ex)
             {
+                ExceptionsHandler.Handle(ex, "Problem with getting sell orders data.");
                 return Error<SummaryOrdersDataInfoDto>(ex.Message);
             }
         }
@@ -54,6 +56,7 @@ namespace OrderBook.BLL.OrdersData.Managers
             }
             catch (Exception ex)
             {
+                ExceptionsHandler.Handle(ex, "Problem with getting buy orders data.");
                 return Error<SummaryOrdersDataInfoDto>(ex.Message);
             }
         }

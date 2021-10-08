@@ -4,7 +4,7 @@ using System.Linq;
 using OrderBook.BLL.OrdersData.Services.Interfaces;
 using OrderBook.CommonTools.Extensions;
 using OrderBook.DataContracts.Orders.Models;
-using OrderBook.Services.RefreshOrdersDataBackgroudService;
+using OrderBook.Services.FetchOrdersDataBackgroundService;
 
 namespace OrderBook.BLL.OrdersData.Services
 {

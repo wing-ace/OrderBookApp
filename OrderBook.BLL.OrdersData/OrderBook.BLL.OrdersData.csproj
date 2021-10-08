@@ -8,7 +8,7 @@
     <ProjectReference Include="..\OrderBook.BLL.Common\OrderBook.BLL.Common.csproj" />
     <ProjectReference Include="..\OrderBook.CommonTools\OrderBook.CommonTools.csproj" />
     <ProjectReference Include="..\OrderBook.DataContracts.Orders\OrderBook.DataContracts.Orders.csproj" />
-    <ProjectReference Include="..\OrderBook.Services.RefreshOrdersDataBackgroudService\OrderBook.Services.RefreshOrdersDataBackgroudService.csproj" />
+    <ProjectReference Include="..\OrderBook.Services.FetchOrdersDataBackgroundService\OrderBook.Services.FetchOrdersDataBackgroundService.csproj" />
   </ItemGroup>
 
 </Project>

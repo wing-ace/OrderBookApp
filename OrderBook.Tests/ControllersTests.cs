@@ -3,6 +3,7 @@ using Moq;
 using OrderBook.BLL.OrdersData.Managers;
 using OrderBook.BLL.OrdersData.Services.Interfaces;
 using OrderBook.DataContracts.Orders.Models;
+using OrderBook.ExceptionsHandler.Interfaces;
 using OrderBookWebApp.Controllers;
 using Xunit;
 
@@ -38,10 +39,11 @@ namespace OrderBook.Tests
         public void SmokeTestForGetSomeDataFromOrderBookController()
         {
             var mockOfOrdersDataService = new Mock<IOrdersDataService>();
+            var mockOfExceptionsHandler = new Mock<IExceptionsHandler>();
 
             mockOfOrdersDataService.Setup(service => service.GetBuyOrdersSummaryData(100, 1, 10))
                 .Returns(() => new SummaryOrdersDataInfoDto());
-            var mockOfOrdersDataManager = new OrdersDataManager(mockOfOrdersDataService.Object);
+            var mockOfOrdersDataManager = new OrdersDataManager(mockOfOrdersDataService.Object, mockOfExceptionsHandler.Object);
 
             var orderBookController = new OrderBookController(mockOfOrdersDataManager);
             Assert.NotNull(orderBookController);

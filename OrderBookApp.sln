@@ -13,31 +13,33 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{4CC1B9CD-A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataModels", "DataModels", "{091F1855-8B80-4EB5-A1C1-F3A07CE796DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderBook.DataContracts.Orders", "OrderBook.DataContracts.Orders\OrderBook.DataContracts.Orders.csproj", "{A2A81648-7761-4E80-8236-4E12F6AC3FA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderBook.DataContracts.Orders", "OrderBook.DataContracts.Orders\OrderBook.DataContracts.Orders.csproj", "{A2A81648-7761-4E80-8236-4E12F6AC3FA8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BLL", "BLL", "{C0CA3B67-7FB7-4172-BAC4-6AC1626B5719}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderBook.DataContracts.Common", "OrderBook.DataContracts.Common\OrderBook.DataContracts.Common.csproj", "{92A061A1-573B-4DEF-BFEA-CCB9E9583E6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderBook.DataContracts.Common", "OrderBook.DataContracts.Common\OrderBook.DataContracts.Common.csproj", "{92A061A1-573B-4DEF-BFEA-CCB9E9583E6D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{3048F177-4716-4DE4-AC84-393179980580}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderBook.Services.RefreshOrdersDataBackgroudService", "OrderBook.Services.RefreshOrdersDataBackgroudService\OrderBook.Services.RefreshOrdersDataBackgroudService.csproj", "{0E5D34D1-61AC-4846-9DEC-635CF2968344}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kit", "Kit", "{4FCF5D17-AEF6-441A-93A9-D4D4BC729E5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderBook.Kit.RestClientWrapper", "OrderBook.Kit.RestClientWrapper\OrderBook.Kit.RestClientWrapper.csproj", "{ACF31B4C-6AB5-4451-A168-629925C0491D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderBook.Kit.RestClientWrapper", "OrderBook.Kit.RestClientWrapper\OrderBook.Kit.RestClientWrapper.csproj", "{ACF31B4C-6AB5-4451-A168-629925C0491D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Global", "Global", "{9969E414-470A-4396-A150-2E6BE6113EB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderBook.CommonDependenciesRegistration", "OrderBook.CommonDependenciesRegistration\OrderBook.CommonDependenciesRegistration.csproj", "{009B350E-B250-45A6-AB49-4A9D9B6AD81E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderBook.CommonDependenciesRegistration", "OrderBook.CommonDependenciesRegistration\OrderBook.CommonDependenciesRegistration.csproj", "{009B350E-B250-45A6-AB49-4A9D9B6AD81E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderBook.CommonTools", "OrderBook.CommonTools\OrderBook.CommonTools.csproj", "{0156C7D8-4405-4B2F-8D15-CF82FCE55FC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderBook.CommonTools", "OrderBook.CommonTools\OrderBook.CommonTools.csproj", "{0156C7D8-4405-4B2F-8D15-CF82FCE55FC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderBook.BLL.Common", "OrderBook.BLL.Common\OrderBook.BLL.Common.csproj", "{6042F086-721A-44B3-8C25-7397679A965E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderBook.BLL.Common", "OrderBook.BLL.Common\OrderBook.BLL.Common.csproj", "{6042F086-721A-44B3-8C25-7397679A965E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderBook.BLL.OrdersData", "OrderBook.BLL.OrdersData\OrderBook.BLL.OrdersData.csproj", "{FEE90BB7-00FC-4871-91B3-0E29FFEB2DD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderBook.BLL.OrdersData", "OrderBook.BLL.OrdersData\OrderBook.BLL.OrdersData.csproj", "{FEE90BB7-00FC-4871-91B3-0E29FFEB2DD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderBook.Tests", "OrderBook.Tests\OrderBook.Tests.csproj", "{F24ADFFA-604C-4F10-A057-DE3CCBBD6D1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderBook.Tests", "OrderBook.Tests\OrderBook.Tests.csproj", "{F24ADFFA-604C-4F10-A057-DE3CCBBD6D1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderBook.ExceptionsHandler", "OrderBook.ExceptionsHandler\OrderBook.ExceptionsHandler.csproj", "{0AE4A435-BFA3-476A-A59D-A7C90F336727}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderBook.Services.FetchOrdersDataBackgroundService", "OrderBook.Services.FetchOrdersDataBackgroundService\OrderBook.Services.FetchOrdersDataBackgroundService.csproj", "{717D0DF4-4077-4173-B71C-B593E861B8F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,10 +59,6 @@ Global
 		{92A061A1-573B-4DEF-BFEA-CCB9E9583E6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92A061A1-573B-4DEF-BFEA-CCB9E9583E6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92A061A1-573B-4DEF-BFEA-CCB9E9583E6D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0E5D34D1-61AC-4846-9DEC-635CF2968344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0E5D34D1-61AC-4846-9DEC-635CF2968344}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0E5D34D1-61AC-4846-9DEC-635CF2968344}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0E5D34D1-61AC-4846-9DEC-635CF2968344}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ACF31B4C-6AB5-4451-A168-629925C0491D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ACF31B4C-6AB5-4451-A168-629925C0491D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACF31B4C-6AB5-4451-A168-629925C0491D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -85,6 +83,14 @@ Global
 		{F24ADFFA-604C-4F10-A057-DE3CCBBD6D1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F24ADFFA-604C-4F10-A057-DE3CCBBD6D1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F24ADFFA-604C-4F10-A057-DE3CCBBD6D1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AE4A435-BFA3-476A-A59D-A7C90F336727}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AE4A435-BFA3-476A-A59D-A7C90F336727}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AE4A435-BFA3-476A-A59D-A7C90F336727}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AE4A435-BFA3-476A-A59D-A7C90F336727}.Release|Any CPU.Build.0 = Release|Any CPU
+		{717D0DF4-4077-4173-B71C-B593E861B8F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{717D0DF4-4077-4173-B71C-B593E861B8F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{717D0DF4-4077-4173-B71C-B593E861B8F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{717D0DF4-4077-4173-B71C-B593E861B8F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,7 +102,6 @@ Global
 		{C0CA3B67-7FB7-4172-BAC4-6AC1626B5719} = {4CC1B9CD-A86C-443E-BC04-5514D7EC9D8E}
 		{92A061A1-573B-4DEF-BFEA-CCB9E9583E6D} = {091F1855-8B80-4EB5-A1C1-F3A07CE796DD}
 		{3048F177-4716-4DE4-AC84-393179980580} = {4CC1B9CD-A86C-443E-BC04-5514D7EC9D8E}
-		{0E5D34D1-61AC-4846-9DEC-635CF2968344} = {3048F177-4716-4DE4-AC84-393179980580}
 		{4FCF5D17-AEF6-441A-93A9-D4D4BC729E5C} = {4CC1B9CD-A86C-443E-BC04-5514D7EC9D8E}
 		{ACF31B4C-6AB5-4451-A168-629925C0491D} = {4FCF5D17-AEF6-441A-93A9-D4D4BC729E5C}
 		{9969E414-470A-4396-A150-2E6BE6113EB7} = {4CC1B9CD-A86C-443E-BC04-5514D7EC9D8E}
@@ -105,6 +110,8 @@ Global
 		{6042F086-721A-44B3-8C25-7397679A965E} = {C0CA3B67-7FB7-4172-BAC4-6AC1626B5719}
 		{FEE90BB7-00FC-4871-91B3-0E29FFEB2DD7} = {C0CA3B67-7FB7-4172-BAC4-6AC1626B5719}
 		{F24ADFFA-604C-4F10-A057-DE3CCBBD6D1F} = {CB72D4A4-19D5-4E89-B53D-ED11F8F534BA}
+		{0AE4A435-BFA3-476A-A59D-A7C90F336727} = {9969E414-470A-4396-A150-2E6BE6113EB7}
+		{717D0DF4-4077-4173-B71C-B593E861B8F4} = {3048F177-4716-4DE4-AC84-393179980580}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DA9DBE19-3A5F-4E60-837D-F8F36358384C}

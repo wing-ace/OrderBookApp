@@ -10,7 +10,7 @@ using OrderBook.DataContracts.Orders.Models;
 using OrderBook.Kit.RestClientWrapper.Interfaces;
 using OrderBook.Services.RefreshOrdersDataBackgroudService.Constants;
 
-namespace OrderBook.Services.RefreshOrdersDataBackgroudService
+namespace OrderBook.Services.FetchOrdersDataBackgroundService
 {
     /// <summary>
     /// The background service for fetch orders data from external API

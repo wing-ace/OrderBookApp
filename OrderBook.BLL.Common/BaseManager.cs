@@ -1,4 +1,5 @@
 ﻿using OrderBook.BLL.Common.ResultModels;
+using OrderBook.ExceptionsHandler.Interfaces;
 
 namespace OrderBook.BLL.Common
 {
@@ -7,6 +8,13 @@ namespace OrderBook.BLL.Common
     /// </summary>
     public abstract class BaseManager
     {
+        protected readonly IExceptionsHandler ExceptionsHandler;
+
+        protected BaseManager(IExceptionsHandler exceptionsHandler)
+        {
+            ExceptionsHandler = exceptionsHandler;
+        }
+
         /// <summary>
         /// The success result of manager's method execution
         /// </summary>
