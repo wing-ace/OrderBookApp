@@ -18,9 +18,10 @@ function OrderBookPageViewModel(config) {
 
     vm.SellOrders = new function() {
         this.Title = ko.observable("Sell Orders");
+        this.Type = ko.observable(vm.Config.OrderTypes.SellOrders);
         this.OrdersData = ko.observableArray([]);
         this.RefreshData = async function (selectedPage) {
-            await refresOrdersData(vm.SellOrders, selectedPage, vm.Config.Urls.GetSellOrdersData);
+            await refresOrdersData(vm.SellOrders, selectedPage, vm.SellOrders.Type());
         };
         this.PagerOptions = createPagerOptions(this.RefreshData);
         this.Pager = new KnockoutPagingViewModel(this.PagerOptions);
@@ -28,17 +29,18 @@ function OrderBookPageViewModel(config) {
 
     vm.BuyOrders = new function () {
         this.Title = ko.observable("Buy Orders");
+        this.Type = ko.observable(vm.Config.OrderTypes.BuyOrders);
         this.OrdersData = ko.observableArray([]);
         this.RefreshData = async function (selectedPage) {
-            await refresOrdersData(vm.BuyOrders, selectedPage, vm.Config.Urls.GetBuyOrdersData);
+            await refresOrdersData(vm.BuyOrders, selectedPage, vm.BuyOrders.Type());
         };
         this.PagerOptions = createPagerOptions(this.RefreshData);
         this.Pager = new KnockoutPagingViewModel(this.PagerOptions);
     };
 
-    async function refresOrdersData(ordersModel, selectedPage, baseUrl) {
+    async function refresOrdersData(ordersModel, selectedPage, orderType) {
         PageLoader.ShowLoader(vm.LoaderContainer);
-        const ordersData = await webRequestSender.sendGetRequest(buildUrlForFetchData(baseUrl, selectedPage));
+        const ordersData = await webRequestSender.sendGetRequest(buildUrlForFetchData(orderType, selectedPage));
         if (!ordersData) {
             PageLoader.HideLoader(vm.LoaderContainer);
             return;
@@ -49,9 +51,9 @@ function OrderBookPageViewModel(config) {
         PageLoader.HideLoader(vm.LoaderContainer);
     };
 
-    function buildUrlForFetchData(baseUrl, selectedPage) {
+    function buildUrlForFetchData(orderType, selectedPage) {
         const depthValue = vm.Filter.DepthValue() ? vm.Filter.DepthValue() : 0;
-        return `${baseUrl}?depthValue=${depthValue}&pageNumber=${selectedPage}&pageSize=10`
+        return `${vm.Config.Urls.GetOrdersDataByType}?orderType=${orderType}&depthValue=${depthValue}&pageNumber=${selectedPage}&pageSize=10`
     };
 
     function updatePagerData(pager, currentPage, totalItemsCount) {

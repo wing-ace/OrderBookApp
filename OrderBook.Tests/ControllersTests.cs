@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using OrderBook.BLL.OrdersData.Managers;
 using OrderBook.BLL.OrdersData.Services.Interfaces;
+using OrderBook.DataContracts.Orders.Enums;
 using OrderBook.DataContracts.Orders.Models;
 using OrderBook.ExceptionsHandler.Interfaces;
 using OrderBookWebApp.Controllers;
@@ -41,14 +42,15 @@ namespace OrderBook.Tests
             var mockOfOrdersDataService = new Mock<IOrdersDataService>();
             var mockOfExceptionsHandler = new Mock<IExceptionsHandler>();
 
-            mockOfOrdersDataService.Setup(service => service.GetBuyOrdersSummaryData(100, 1, 10))
+            mockOfOrdersDataService
+                .Setup(service => service.GetOrdersSummaryDataByType(OrderTypeEnum.BuyOrder, 100, 1, 10))
                 .Returns(() => new SummaryOrdersDataInfoDto());
             var mockOfOrdersDataManager = new OrdersDataManager(mockOfOrdersDataService.Object, mockOfExceptionsHandler.Object);
 
             var orderBookController = new OrderBookController(mockOfOrdersDataManager);
             Assert.NotNull(orderBookController);
 
-            var buyOrdersData = orderBookController.GetBuyOrdersData(100, 1, 10);
+            var buyOrdersData = orderBookController.GetOrdersDataByType(OrderTypeEnum.BuyOrder, 100, 1, 10);
             Assert.NotNull(buyOrdersData);
             Assert.IsType<JsonResult>(buyOrdersData);
 
