@@ -1,5 +1,5 @@
 ﻿const webRequestSender = {
-    sendGetRequest: async function (url) {
+    sendGetRequestAsync: async function (url) {
         try {
             const result = await $.ajax({
                 url: url,
@@ -15,6 +15,19 @@
             this._handleError(error);
             return null;
         }
+    },
+
+    sendGetRequst: function (url, callbackFunc) {
+        $.ajax({
+            url: url,
+            method: "GET",
+            success: function (result) {
+                if (!callbackFunc) {
+                    return;
+                }
+                callbackFunc(result);
+            }
+        });
     },
 
     _handleError: function (errorModel) {
