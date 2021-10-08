@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Order Book";
+}
+
+<div class="ibox" style="margin: 15px 0 60px 0" id="order-book-container">
+    <div class="ibox-content">
+        @await Html.PartialAsync("Components/_inputFields")
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
+            <!-- ko with: $root.BuyOrders -->
+            @await Html.PartialAsync("Components/_ordersTable")
+            <!--/ko-->
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <!-- ko with: $root.SellOrders -->
+            @await Html.PartialAsync("Components/_ordersTable")
+            <!--/ko-->
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    @await Html.PartialAsync("_knockoutPagination")
+    <script type="text/javascript" src="~/js/custom/helpers/webRequestSender.js"></script>
+    <script type="text/javascript" src="~/js/custom/viewModels/OrderBookPageViewModel.js"></script>
+    <script type="text/javascript">
+        var config = {
+            Urls: {
+                GetBuyOrdersData: '@Url.Action("GetBuyOrdersData", "OrderBook")',
+                GetSellOrdersData: '@Url.Action("GetSellOrdersData", "OrderBook")'
+            }
+        };
+
+        $(document).ready(function () {
+            const viewModel = new OrderBookPageViewModel(config);
+            ko.applyBindings(viewModel);
+        });
+    </script>
+}

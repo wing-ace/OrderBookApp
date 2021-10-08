@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="RestSharp" Version="106.12.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OrderBook.CommonTools\OrderBook.CommonTools.csproj" />
+    <ProjectReference Include="..\OrderBook.DataContracts.Orders\OrderBook.DataContracts.Orders.csproj" />
+    <ProjectReference Include="..\OrderBook.Services.RefreshOrdersDataBackgroudService\OrderBook.Services.RefreshOrdersDataBackgroudService.csproj" />
+  </ItemGroup>
+
+</Project>

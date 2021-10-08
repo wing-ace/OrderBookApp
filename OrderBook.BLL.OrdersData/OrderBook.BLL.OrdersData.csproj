@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OrderBook.BLL.Common\OrderBook.BLL.Common.csproj" />
+    <ProjectReference Include="..\OrderBook.CommonTools\OrderBook.CommonTools.csproj" />
+    <ProjectReference Include="..\OrderBook.DataContracts.Orders\OrderBook.DataContracts.Orders.csproj" />
+    <ProjectReference Include="..\OrderBook.Services.RefreshOrdersDataBackgroudService\OrderBook.Services.RefreshOrdersDataBackgroudService.csproj" />
+  </ItemGroup>
+
+</Project>
